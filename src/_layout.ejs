@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title><%= title %></title>
+
+  <meta name="description" content="<%= description %>">
+  <meta name="author" content="<%= author %>">
+  <meta property="og:image" content="images/noun_party.png" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <link rel="stylesheet" href="components/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="components/revealjs/css/theme/simple.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="components/revealjs/lib/css/zenburn.css">
+
+  <!-- Require JS -->
+  <!--<script data-main="scripts/main" src="components/require.js"></script>-->
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="components/revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- analytics -->
+   <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24132749-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+</head>
+
+<body>
+
+<div class="reveal reinventing-work">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+
+    <% for(var section_name in public.sections._data){ %>
+    <% var section = public.sections._data[section_name] %>
+      <%- partial("sections/" + section_name) %>
+    <% }; %>
+
+  </div>
+
+</div>
+
+<script src="components/revealjs/lib/js/head.min.js"></script>
+<script src="components/revealjs/js/reveal.min.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+    showNotes: true,
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'components/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'components/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'components/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'components/revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'components/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'components/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+  });
+</script>
+
+</body>
+</html>

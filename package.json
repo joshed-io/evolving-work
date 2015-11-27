@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "clean": "rm -rf ./dist/",
+    "compile": "harp compile src dist",
+    "publish": "npm run compile && bin/publish",
+    "start": "./node_modules/.bin/harp server --port ${PORT:=9000} src"
+  }
+}
