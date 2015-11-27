@@ -38,3 +38,13 @@ Changes that you make to the presentation will be visible immediately, just refr
 ### Publishing
 
 To publish your changes to a `gh-pages` branch run `npm run publish`. The source of the script is in `bin/publish`.
+
+### Wow factor
+
+This is all it takes to make a whole slide:
+
+```jade
+section
+  p This presentation was created for the students of St. Jean de Passy in Paris, France.
+  img(src="images/noun_school.png")
+```
