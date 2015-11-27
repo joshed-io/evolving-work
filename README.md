@@ -8,7 +8,7 @@ Contributions and pull requests welcome, this is a living presentation!
 
 These instructions assume you have Node and npm already installed.
 
-First, clone this repository and enter the directory.
+First, clone this repository and enter the directory:
 
 ```shell
 git clone git@github.com:dzello/evolving-work.get
@@ -21,16 +21,16 @@ Install [harp](http://harpjs.com/).
 npm install harp --global
 ```
 
-Serve the `src` directory with harp.
+Serve the `src` directory with harp via an npm command:
 
 ```shell
-harp server src
+npm start
 ```
 
-Open a browser window and you should see the presentation.
+Open a browser window and you should see the presentation:
 
 ```shell
-open localhost:9000
+open http://localhost:9000
 ```
 
 Changes that you make to the presentation will be visible immediately, just refresh the browser.
